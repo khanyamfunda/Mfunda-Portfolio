@@ -22,24 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install --include=optional
-
-      - name: Ensure Linux build binaries
-        run: npm install --no-save @rollup/rollup-linux-x64-gnu @esbuild/linux-x64
-
-      - name: Rebuild build tools
-        run: npm rebuild rollup esbuild
-
-      - name: Build
-        run: npm run build
-
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
